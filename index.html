@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Under Construction</title>
+    <style>
+        /* Importing the Evolventa font */
+        @font-face {
+            font-family: 'Evolventa';
+            src: url('evolventa.ttf') format('truetype');
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: url('background.gif') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            font-family: 'Evolventa', sans-serif;
+        }
+
+        .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .falling-image {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('image.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-text">site is in work.</div>
+
+    <script>
+        // Function to create a falling image
+        function createFallingImage() {
+            const image = document.createElement('div');
+            image.classList.add('falling-image');
+            document.body.appendChild(image);
+
+            // Set a random horizontal position for the image to start
+            image.style.left = Math.random() * window.innerWidth + 'px';
+            image.style.top = '-50px'; // Start above the screen
+
+            let speed = Math.random() * 3 + 2; // Random falling speed
+
+            function fall() {
+                const currentTop = parseFloat(window.getComputedStyle(image).top);
+                if (currentTop < window.innerHeight) {
+                    image.style.top = currentTop + speed + 'px'; // Move image down
+                    requestAnimationFrame(fall);
+                } else {
+                    image.remove(); // Remove image when it goes out of view
+                }
+            }
+
+            fall(); // Start falling
+        }
+
+        // Generate falling images continuously
+        setInterval(createFallingImage, 500); // Adjust the interval for more or fewer images
+    </script>
+</body>
+</html>
