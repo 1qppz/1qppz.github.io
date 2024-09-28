@@ -1,78 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Construction</title>
-    <style>
-        /* Importing the Evolventa font */
-        @font-face {
-            font-family: 'Evolventa';
-            src: url('evolventa.ttf') format('truetype');
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background: url('background.gif') no-repeat center center fixed;
-            background-size: cover;
-            overflow: hidden;
-            font-family: 'Evolventa', sans-serif;
-        }
-
-        .centered-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 50px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            text-align: center;
-        }
-
-        .falling-image {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-image: url('image.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - macOS Style</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="centered-text">site is in work.</div>
+  <div class="finder-bar">
+    <div class="finder">Finder</div>
+    <div class="file">File</div>
+    <div class="edit">Edit</div>
+    <div class="view">View</div>
+    <div class="go">Go</div>
+    <div class="help">Help</div>
+  </div>
 
-    <script>
-        // Function to create a falling image
-        function createFallingImage() {
-            const image = document.createElement('div');
-            image.classList.add('falling-image');
-            document.body.appendChild(image);
+  <div class="desktop">
+    <div class="notes-app">
+      <img src="file.png" alt="Notes App" class="notes-image">
+    </div>
+  </div>
 
-            // Set a random horizontal position for the image to start
-            image.style.left = Math.random() * window.innerWidth + 'px';
-            image.style.top = '-50px'; // Start above the screen
+  <div class="dock">
+    <!-- Twitter -->
+    <a href="https://x.com/definetlyn0tblu" target="_blank" class="dock-icon" data-app="Twitter">
+      <img src="twitter.png" alt="Twitter">
+    </a>
 
-            let speed = Math.random() * 3 + 2; // Random falling speed
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/loudbuntu/" target="_blank" class="dock-icon" data-app="Instagram">
+      <img src="instagram.png" alt="Instagram">
+    </a>
 
-            function fall() {
-                const currentTop = parseFloat(window.getComputedStyle(image).top);
-                if (currentTop < window.innerHeight) {
-                    image.style.top = currentTop + speed + 'px'; // Move image down
-                    requestAnimationFrame(fall);
-                } else {
-                    image.remove(); // Remove image when it goes out of view
-                }
-            }
+    <!-- Pinterest -->
+    <a href="https://pinterest.com/n0tblu/" target="_blank" class="dock-icon" data-app="Pinterest">
+      <img src="pinterest.png" alt="Pinterest">
+    </a>
 
-            fall(); // Start falling
-        }
+    <!-- Discord (not clickable) -->
+    <div class="dock-icon" data-app="Discord">
+      <img src="discord.png" alt="Discord">
+    </div>
 
-        // Generate falling images continuously
-        setInterval(createFallingImage, 500); // Adjust the interval for more or fewer images
-    </script>
+    <!-- Roblox -->
+    <a href="https://www.roblox.com/users/2643652204/profile" target="_blank" class="dock-icon" data-app="Roblox">
+      <img src="roblox.png" alt="Roblox">
+    </a>
+
+    <div class="app-label"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
